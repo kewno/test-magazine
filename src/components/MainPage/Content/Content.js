@@ -6,8 +6,8 @@ import Products from './Products/Products';
 const Content = () => {
     return (
         <div className='container__wrap__content'>
-            <EmptyProducts/>
-            {/* <Products/> */}
+            <Products/>
+            {/* <EmptyProducts/> */}
         </div>
     )
 }

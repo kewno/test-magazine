@@ -1,16 +1,25 @@
-import React from 'react';
-import Picture from '../Picture/Picture';
+import React, { useEffect } from 'react';
+import { createPortal } from 'react-dom';
 
+const containerPopUp = document.querySelector('#pop-up')
 
-const PopUp = (props) => {
+const PopUp = ({text, status, ...props}) => {
+    
+    
+    const element = document.createElement('div')
+    
+    useEffect(() => {
+        containerPopUp.appendChild(element)
+
+        // return () => {
+        //     containerPopUp.removeChild(element)
+        // };
+    });
+    
     return (
-        <div className='pop-up'>
-            <div className='pop-up__header'>
-                <p className='pop-up__header__text'>Оформить заказ</p>
-                <img className='pop-up__header__picture' src={require('../../../img/close.png')}/>
-            </div>
-        </div>
+        createPortal(props.children, element)
     )
+
 }
 
 

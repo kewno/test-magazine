@@ -1,13 +1,10 @@
 import React from 'react';
 
 // onerror/onload
-const Picture = (props) => {
-    debugger
-    let i = props.src;
+const Picture = ({src, ...props}) => {
+    
     return (
-        // <div className='123'> 
-            <img src={require(i)}/>
-        //</div>
+        <img src={require(src)}/>
     )
 }
 
