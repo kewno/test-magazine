@@ -9,6 +9,7 @@ const UiKit = (props) => {
     let [textOne, setTextOne] = useState('');
     let [textTwo, setTextTwo] = useState('');
     let [checkPopUp, setCheckPopUp] = useState(false);
+
     return (
         <div className='container'>
             <div className='container__inputs'> 
@@ -36,14 +37,15 @@ const UiKit = (props) => {
                 <Button href='/' func={() => setCheckPopUp(true)}>
                     Открыть
                 </Button>
-                <PopUp close={setCheckPopUp} status={checkPopUp} text='Оформить заказ'>
+                {/* <PopUp close={setCheckPopUp} status={checkPopUp} text='Оформить заказ'>
                     <div className='pop-up'>
                         <div className='pop-up__header'>
                             <p className='pop-up__text'>{props.text}</p>
                             <img className='pop-up__picture' onClick={() => setCheckPopUp(false)} src={require('../../img/close.png')}/>
                         </div>
                     </div>
-                </PopUp>
+                </PopUp> */}
+                <PopUp toggle={setCheckPopUp} status={checkPopUp} text='Оформить заказ' {...props}/>
             </div>
 
         </div>
