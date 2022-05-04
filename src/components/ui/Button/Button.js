@@ -2,17 +2,18 @@ import React from 'react';
 import {NavLink} from "react-router-dom"
 
 
-const Button = ({href, disable, children, path, ...props}) => {
-    let buttonClass = 'container__wrap-button__button';
+const Button = ({href, disable, children, func, ...attrs}) => {
+    //debugger
+    let buttonClass = 'button';
     if (disable) {
-        buttonClass = 'container__wrap-button__button__disable';
+        buttonClass = 'button button_disable';
     }
     return (
         <div>
             {href ?
-                <NavLink className={`${buttonClass}`} to={`/${path}`}>{children}</NavLink>
+                <NavLink onClick={() => func()} className={`${buttonClass}`} to={`/${href}`}>{children}</NavLink>
                 :
-                <button className={`${buttonClass}`}>{children}</button>
+                <button onClick={() => func()} className={`${buttonClass}`}>{children}</button>
             }
         </div>
     )

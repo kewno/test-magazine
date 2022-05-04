@@ -9,9 +9,9 @@ const Product = ({name, price, textButton, ...props}) => {
             <img src={require('../../../img/product.png')}/>
             {/* <Picture path={props.picture}/> */}
             <div className='product__wrap-text-button'>
-                <div className='product__wrap-text-button__wrap-text'>
-                    <p className='product__wrap-text-button__wrap-text_elem1'>{name}</p>
-                    <h3 className='product__wrap-text-button__wrap-text_elem2'>{price}</h3>
+                <div className='product__wrap-text'>
+                    <p className='product__text1'>{name}</p>
+                    <h3 className='product__text2'>{price}</h3>
                 </div>
                 <Button href='/'>{textButton}</Button>
             </div>

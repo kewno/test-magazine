@@ -5,7 +5,6 @@ const containerPopUp = document.querySelector('#pop-up')
 
 const PopUp = ({text, status, ...props}) => {
     
-    
     const element = document.createElement('div')
     
     useEffect(() => {
