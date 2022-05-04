@@ -4,6 +4,7 @@ import '../../styles/kitStyle.scss';
 import PopUp from '../ui/PopUp/PopUp'
 import Input from '../ui/Input/Input'
 import Product from '../ui/Product/Product';
+import Tab from '../ui/Tab/Tab';
 
 const UiKit = (props) => {
     let [textOne, setTextOne] = useState('');
@@ -17,6 +18,10 @@ const UiKit = (props) => {
                 <Input type='text' value={textTwo} onChange={e => setTextTwo(e.target.value)} textError='Обязательное поле'>Имя</Input>
             </div>
             
+            {/* <div className='container__tab'>
+
+            </div> */}
+            <Tab/>
             <div className='container__buttons'>
                 <Button href='/'>
                     Добавить в корзину

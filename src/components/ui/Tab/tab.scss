@@ -1,0 +1,24 @@
+.container-tab {
+    display: flex;
+    max-width: 435px;
+    justify-content: space-between;
+    
+    .container-tab__elem {
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 19px;
+        color: var(--dark);
+        border-bottom: 3px solid var(--white-grey);
+        padding-bottom: 3px;
+        
+        &:hover {
+            border-bottom: 3px solid var(--acthent);
+        }
+    }
+
+    .container-tab__elem_active {
+        border-bottom: 3px solid var(--acthent);
+    }
+}
+
+
