@@ -1,15 +1,4 @@
-$cActhent: #FF6969;
-$cDisable: #FC7676;
-$cWhite: #FFFFFF;
-$cBlack: #000;
-$cDark: #424242;
-
-* {
-    margin: 0;
-    padding: 0;
-    text-decoration: none;
-    font-family: 'Roboto', sans-serif;
-}
+@import './../../../styles/style.scss';
 
 .container__inputs {
     margin: 15px;
@@ -26,19 +15,19 @@ $cDark: #424242;
         margin-bottom: 5px;
     }
     .input__enter {
-        border: 1px solid $cBlack;
+        border: 1px solid var(--black);
         box-sizing: border-box;
         border-radius: 5px;
         width: 275px;
         height: 41px;
     }
     .input__enter_error {
-        border: 1px solid $cActhent;;
+        border: 1px solid var(--acthent);
     }
     .input__text-error {
         font-size: 14px;
         line-height: 16px;
-        color: $cActhent;
+        color: var(--acthent);
     }
 }
 

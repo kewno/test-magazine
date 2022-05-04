@@ -1,0 +1,27 @@
+// $cActhent: #FF6969;
+// $cDisable: #FC7676;
+// $cWhite: #FFFFFF;
+// $cBlack: #000;
+// $cDark: #424242;
+// $cGrey: #E4E4E4;
+
+:root {
+    --acthent: #FF6969;
+    --disable: #FC7676;
+    --white: #FFFFFF;
+    --black: #000;
+    --dark: #424242;
+    --grey: #E4E4E4;
+    --grey-black: #181818;
+}
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    font-family: 'Roboto', sans-serif;
+}
+
+.container {
+    display: flex;
+    //background-color: var(--acthent);
+}

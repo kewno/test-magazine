@@ -1,16 +1,5 @@
-$cActhent: #FF6969;
-$cDisable: #FC7676;
-$cWhite: #FFFFFF;
-$cBlack: #000;
-$cDark: #424242;
-$cGrey: #E4E4E4;
+@import './style.scss';
 
-* {
-    margin: 0;
-    padding: 0;
-    text-decoration: none;
-    font-family: 'Roboto', sans-serif;
-}
 
 .sidebar {
     min-width: 325px;
@@ -21,15 +10,15 @@ $cGrey: #E4E4E4;
         flex-basis: 325px;
 
         .sidebar__menu__elem {
-            border-bottom: 1px solid $cGrey;
+            border-bottom: 1px solid var(--grey);
             font-size: 16px;
             line-height: 19px;
-            color: $cDark;
+            color: var(--dark);
             padding: 15.53px 0 17.75px 30px;
         }
 
         .sidebar__menu__elem__active {
-            color: $cActhent;
+            color: var(--acthent);
             padding: 20px 0 15.7px 30px;
         }
     }

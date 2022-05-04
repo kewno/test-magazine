@@ -1,15 +1,4 @@
-$cActhent: #FF6969;
-$cDisable: #FC7676;
-$cWhite: #FFFFFF;
-$cBlack: #000;
-$cDark: #424242;
-
-* {
-    margin: 0;
-    padding: 0;
-    text-decoration: none;
-    font-family: 'Roboto', sans-serif;
-}
+@import './style.scss';
 
 .header {
     height: 60px;
@@ -19,7 +8,7 @@ $cDark: #424242;
         display: flex;
         flex: auto;
         .header__wrap-logo-menu__main-logo {
-            background: $cActhent;
+            background: var(--acthent);
             display: flex;
             width: 165px;
             height: 100%;
@@ -30,7 +19,7 @@ $cDark: #424242;
                 height: 33.55px;
             }
             .header__wrap-logo-menu__main-logo__text {
-                color: $cWhite;
+                color: var(--white);
                 font-weight: 700;
                 font-size: 20px;
                 line-height: 23px;
@@ -45,16 +34,16 @@ $cDark: #424242;
                 height: 100%;
                 font-size: 18px;
                 line-height: 60px;
-                color: $cDark;
+                color: var(--dark);
                 margin: 0 22px 0;
                 box-sizing: border-box;
 
                 .header__wrap-logo-menu__menu__elem__active {
-                    border-bottom: 4px solid $cActhent;
+                    border-bottom: 4px solid var(--acthent);
                 }
 
                 &:hover {
-                    border-bottom: 4px solid $cDisable;
+                    border-bottom: 4px solid var(--disable);
                 } 
             }
         }
@@ -71,7 +60,7 @@ $cDark: #424242;
             width: 18px;
             height: 18px;
             border-radius: 50%;
-            background: $cActhent;
+            background: var(--acthent);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -83,7 +72,7 @@ $cDark: #424242;
                 display: block;
                 font-size: 11px;
                 line-height: 14px;
-                color: $cWhite;
+                color: var(--white);
                 height: 13px;
                 width: 13px;
             }

@@ -1,15 +1,4 @@
-$cActhent: #FF6969;
-$cDisable: #FC7676;
-$cWhite: #FFFFFF;
-$cBlack: #000;
-$cDark: #424242;
-
-* {
-    margin: 0;
-    padding: 0;
-    text-decoration: none;
-    font-family: 'Roboto', sans-serif;
-}
+@import './../../../styles/style.scss';
 
 .product {
     width: 353px;
@@ -27,13 +16,13 @@ $cDark: #424242;
     .product___text1 {
         font-size: 18px;
         line-height: 21px;
-        color: $cDark;
+        color: var(--dark);
         margin-top: 20px;
     }
     .product__text2 {
         font-size: 18px;
         line-height: 21px;
-        color: $cDark;
+        color: var(--dark);
         font-weight: 700;
         margin-top: 10px;
     }

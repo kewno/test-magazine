@@ -1,19 +1,4 @@
-$cActhent: #FF6969;
-$cDisable: #FC7676;
-$cWhite: #FFFFFF;
-$cBlack: #000;
-$cDark: #424242;
-
-* {
-    margin: 0;
-    padding: 0;
-    text-decoration: none;
-    font-family: 'Roboto', sans-serif;
-}
-
-.container {
-    display: flex;
-}
+@import './style.scss';
 
 .container__pop-up {
     display: flex;

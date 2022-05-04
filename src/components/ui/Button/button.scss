@@ -1,8 +1,4 @@
-$cActhent: #FF6969;
-$cDisable: #FC7676;
-$cWhite: #FFFFFF;
-$cBlack: #000;
-$cDark: #424242;
+@import './../../../styles/style.scss';
 
 * {
     margin: 0;
@@ -22,23 +18,23 @@ $cDark: #424242;
     display: inline-block;
     width: 219px;
     height: 40px;
-    color: $cWhite;
+    color: var(--white);
     font-size: 18px;
     line-height: 36px;
     text-align: center;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.08);
-    background: $cActhent;
+    background: var(--acthent);
     outline: none;
     border: none;
     cursor: pointer;
 
     &:hover {
-        background: $cDisable;
+        background: var(--disable);
     }
 }
 .button_disable {
     cursor: default;
-    background: $cDisable;
+    background: var(--disable);
 }
 
 
