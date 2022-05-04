@@ -4,7 +4,7 @@ import '../../styles/kitStyle.scss';
 import PopUp from '../ui/PopUp/PopUp'
 import Input from '../ui/Input/Input'
 import Product from '../ui/Product/Product';
-import Tab from '../ui/Tab/Tab';
+import Tabs from '../ui/Tabs/Tabs';
 
 const UiKit = (props) => {
     let [textOne, setTextOne] = useState('');
@@ -21,7 +21,7 @@ const UiKit = (props) => {
             {/* <div className='container__tab'>
 
             </div> */}
-            <Tab/>
+            <Tabs/>
             <div className='container__buttons'>
                 <Button href='/'>
                     Добавить в корзину
