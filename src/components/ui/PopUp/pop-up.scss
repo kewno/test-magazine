@@ -11,15 +11,23 @@ $cDark: #424242;
     font-family: 'Roboto', sans-serif;
 }
 
-.pop-up {
+.pop-up__wrap {
     display: block;
-    width: 633px;
-    height: 1045px;
-    border: 1px solid $cBlack;
+}
+.pop-up__wrap_close {
+    display: none;
 }
 
-.pop-up_close {
-    display: none;
+
+.pop-up {
+    box-sizing: border-box;
+    width: 633px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 1045px;
+    border: 1px solid $cBlack;
+    background: $cWhite;
 }
 
 .pop-up__header {
@@ -27,13 +35,13 @@ $cDark: #424242;
     justify-content: space-between;
     margin: 30px 30px 0;
 
-    .pop-up__header__text {
+    .pop-up__text {
         font-weight: 700;
         font-size: 18px;
         line-height: 20px;
     }
 
-    .pop-up__header__picture {
+    .pop-up__picture {
         width: 20px;
         height: 20px;
         cursor: pointer;
