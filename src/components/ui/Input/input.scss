@@ -1,0 +1,44 @@
+$cActhent: #FF6969;
+$cDisable: #FC7676;
+$cWhite: #FFFFFF;
+$cBlack: #000;
+$cDark: #424242;
+
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    font-family: 'Roboto', sans-serif;
+}
+
+.container__inputs {
+    margin: 15px;
+    display: flex;
+    width: 600px;
+    justify-content: space-between;
+}
+.input {
+    display: flex;
+    flex-direction: column;
+    .input__name {
+        font-size: 16px;
+        line-height: 19px;
+        margin-bottom: 5px;
+    }
+    .input__enter {
+        border: 1px solid $cBlack;
+        box-sizing: border-box;
+        border-radius: 5px;
+        width: 275px;
+        height: 41px;
+    }
+    .input__enter_error {
+        border: 1px solid $cActhent;;
+    }
+    .input__text-error {
+        font-size: 14px;
+        line-height: 16px;
+        color: $cActhent;
+    }
+}
+

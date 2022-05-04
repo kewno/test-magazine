@@ -1,6 +1,6 @@
 import React from 'react';
 import Button from '../Button/Button';
-import {NavLink} from "react-router-dom"
+import './product.scss';
 
 
 const Product = ({name, price, textButton, ...props}) => {

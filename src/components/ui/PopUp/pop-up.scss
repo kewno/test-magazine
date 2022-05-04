@@ -1,0 +1,41 @@
+$cActhent: #FF6969;
+$cDisable: #FC7676;
+$cWhite: #FFFFFF;
+$cBlack: #000;
+$cDark: #424242;
+
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    font-family: 'Roboto', sans-serif;
+}
+
+.pop-up {
+    display: block;
+    width: 633px;
+    height: 1045px;
+    border: 1px solid $cBlack;
+}
+
+.pop-up_close {
+    display: none;
+}
+
+.pop-up__header {
+    display: flex;
+    justify-content: space-between;
+    margin: 30px 30px 0;
+
+    .pop-up__header__text {
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 20px;
+    }
+
+    .pop-up__header__picture {
+        width: 20px;
+        height: 20px;
+        cursor: pointer;
+    }
+}

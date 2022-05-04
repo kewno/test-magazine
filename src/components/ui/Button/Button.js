@@ -1,9 +1,8 @@
 import React from 'react';
 import {NavLink} from "react-router-dom"
-
+import './button.scss';
 
 const Button = ({href, disable, children, func, ...attrs}) => {
-    //debugger
     let buttonClass = 'button';
     if (disable) {
         buttonClass = 'button button_disable';

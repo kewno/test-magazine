@@ -4,13 +4,17 @@ import '../../styles/kitStyle.scss';
 import PopUp from '../ui/PopUp/PopUp'
 import Input from '../ui/Input/Input'
 import Product from '../ui/Product/Product';
-import Basket from '../Header/Basket/Basket';
 
 const UiKit = (props) => {
-
+    let [textOne, setTextOne] = useState('');
+    let [textTwo, setTextTwo] = useState('');
     return (
         <div className='container'>
-            {/* <Picture src='../../img/product.png'/> */}
+            <div className='container__inputs'> 
+                <Input type='text' value={textOne} onChange={e => setTextOne(e.target.value)} {...props}>Имя</Input>
+                <Input type='text' value={textTwo} onChange={e => setTextTwo(e.target.value)} textError='Обязательное поле'>Имя</Input>
+            </div>
+            
             <div className='container__buttons'>
                 <Button href='/'>
                     Добавить в корзину
@@ -18,14 +22,9 @@ const UiKit = (props) => {
                 <Button>
                     . . .
                 </Button>
-                <Button disable={true} href='/'>
+                <Button disable href='/'>
                     Добавить в корзину
                 </Button>
-            </div>
-
-            <div className='container__inputs'> 
-                <Input type='text' text='Имя'>Имя</Input>
-                <Input type='text' text='Имя' textError='Обязательное поле'>Имя</Input>
             </div>
 
             <div>

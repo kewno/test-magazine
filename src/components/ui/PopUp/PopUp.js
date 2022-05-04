@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { createPortal } from 'react-dom';
-
+import './pop-up.scss';
 const containerPopUp = document.querySelector('#pop-up')
 
 const PopUp = ({text, status, ...props}) => {

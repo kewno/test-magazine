@@ -1,0 +1,44 @@
+$cActhent: #FF6969;
+$cDisable: #FC7676;
+$cWhite: #FFFFFF;
+$cBlack: #000;
+$cDark: #424242;
+
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    font-family: 'Roboto', sans-serif;
+}
+
+.container__buttons {
+    display: flex;
+    width: 700px;
+    justify-content: space-around;
+    margin: 10px;
+}
+
+.button {
+    display: inline-block;
+    width: 219px;
+    height: 40px;
+    color: $cWhite;
+    font-size: 18px;
+    line-height: 36px;
+    text-align: center;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.08);
+    background: $cActhent;
+    outline: none;
+    border: none;
+    cursor: pointer;
+
+    &:hover {
+        background: $cDisable;
+    }
+}
+.button_disable {
+    cursor: default;
+    background: $cDisable;
+}
+
+
