@@ -1,10 +1,10 @@
 import React from 'react';
 
 
-const Point = (props) => {
+const Point = ({coll, ...props}) => {
     return (
-        <div className='header__basket__picture__point'>
-            <span className='header__basket__picture__point__coll'>15</span>
+        <div className='basket__point'>
+            <span className='basket__point_coll'>{coll}</span>
         </div>
     )
 }

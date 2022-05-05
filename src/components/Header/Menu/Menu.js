@@ -1,12 +1,12 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import MenuElem from './MenuElem/MenuElem';
 
 
-const Menu = () => {
+const Menu = ({elemMenu, ...props}) => {
     return (
-        <ul className='header__wrap-logo-menu__menu'>
-           <NavLink className={'header__wrap-logo-menu__menu__elem header__wrap-logo-menu__menu__elem__active'} to={'/'}>Электроприборы</NavLink>
-           <NavLink className={'header__wrap-logo-menu__menu__elem'}to={'/'}>Мебель</NavLink>
+        <ul className='main-menu'>
+           <MenuElem active href={'/'}>Электроприборы</MenuElem>
+           <MenuElem href={'/'}>Мебель</MenuElem>
         </ul>
     )
 }

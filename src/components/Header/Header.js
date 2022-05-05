@@ -6,15 +6,14 @@ import Basket from './Basket/Basket';
 
 
 
-const Header = () => {
+const Header = ({coll = 15, elemMenu, ...props}) => {
     return (
         <div className='header'>
             <div className='header__wrap-logo-menu'>
                 <MainLogo />
-                <Menu />
+                <Menu elemMenu={elemMenu}/>
             </div>
-            <Basket srcBasket={'../../img/basket.png'}/>
-            {/* <img className='headerbasket' src={require('../../img/basket.png')}/> */}
+            <Basket coll={coll}/>
         </div>
     )
 }

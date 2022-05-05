@@ -8,10 +8,10 @@ const MainPage = () => {
     return (
         <div className='container'>
             <Header/>
-            <div className='container__wrap'>
+            {/* <div className='container__wrap'>
                 <Sidebar/>
                 <Content/>
-            </div>
+            </div> */}
         </div>
     )
 }
