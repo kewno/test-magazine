@@ -1,14 +1,12 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
 
-const Tab = ({name, href, active, ...props}) => {
-    let elemClass = active ? 'container-tab__elem container-tab__elem_active' : 'container-tab__elem'
+  
+function Tab({children, ...props }) {
     return (
-        <div>
-            <NavLink className={elemClass}to={href}>{name}</NavLink>
-        </div>
+      <div className="tabs__tab">
+        {children}
+      </div>
     )
 }
-
 
 export default Tab

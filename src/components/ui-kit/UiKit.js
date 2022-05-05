@@ -5,12 +5,13 @@ import PopUp from '../ui/PopUp/PopUp'
 import Input from '../ui/Input/Input'
 import Product from '../ui/Product/Product';
 import Tabs from '../ui/Tabs/Tabs';
+import Tab from '../ui/Tabs/Tab/Tab'
 
 const UiKit = (props) => {
     let [textOne, setTextOne] = useState('');
     let [textTwo, setTextTwo] = useState('');
     let [checkPopUp, setCheckPopUp] = useState(false);
-
+    let [selectedTab, setActiveTab] = useState('description');
     return (
         <div className='container'>
             <div className='container__inputs'> 
@@ -18,10 +19,20 @@ const UiKit = (props) => {
                 <Input type='text' value={textTwo} onChange={e => setTextTwo(e.target.value)} textError='Обязательное поле'>Имя</Input>
             </div>
             
-            {/* <div className='container__tab'>
-
-            </div> */}
-            <Tabs/>
+            <Tabs selectedTab={selectedTab} changeTab={setActiveTab}>
+                <Tab name="description" title="Описание">
+                    Описание
+                </Tab>
+                <Tab name="characteristics" title="Характеристики">
+                    Характеристики
+                </Tab>
+                <Tab name="reviews" title="Отзывы">
+                    <p>третье</p>
+                </Tab>
+                <Tab name="send-reviews" title="Оставить отзыв">
+                    <p>четвертое</p>
+                </Tab>
+            </Tabs>
             <div className='container__buttons'>
                 <Button href='/'>
                     Добавить в корзину

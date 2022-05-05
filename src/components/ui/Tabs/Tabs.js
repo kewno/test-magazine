@@ -1,16 +1,32 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
 import Tab from './Tab/Tab';
+import TabList from './TabList/TabList';
 import './tabs.scss';
 
-const Tabs = ({tabs, ...props}) => {
+function Tabs({ children, selectedTab, changeTab, ...props}) {
+    let tabProps = []
+    const content = React.Children.map(children, (child) => {
+        if (child.type === Tab) {
+            const { title, name } = child.props
+            tabProps.push({ title, name })
+            if (selectedTab ? (selectedTab !== child.props.name) : (tabProps.length !== 1)) {
+                return null
+            }
+        }
+        return child
+    })
     
+
     return (
-        <div className='container-tab'>
-            <Tab name='Описание' href='/' active/>
-            <Tab name='Характеристики' href='/'/>
-            <Tab name='Отзывы' href='/'/>
-            <Tab name='Оставить отзыв' href='/'/>
+        <div className="tabs">
+            <TabList
+                selectedTab={selectedTab}
+                changeTab={changeTab}
+                tabs={tabProps}
+            />
+            <div className="tabs__content">
+                {content}
+            </div>
         </div>
     )
 }

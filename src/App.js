@@ -9,7 +9,9 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path='/ui-kit' element={<UiKit/>}/>{/*  reg MainPage*/}
+        <Route path='/ui-kit' element={<UiKit/>}>
+          <Route path=':sellectCategory' element={<UiKit />}/>
+        </Route>
         <Route path='/header' element={<Header/>}/>
         <Route exact path='/' element={<MainPage/>}/>
       </Routes>
