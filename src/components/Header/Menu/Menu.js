@@ -2,11 +2,14 @@ import React from 'react';
 import MenuElem from './MenuElem/MenuElem';
 
 
-const Menu = ({elemMenu, ...props}) => {
+const Menu = ({categorys, ...props}) => {
     return (
         <ul className='main-menu'>
-           <MenuElem active href={'/'}>Электроприборы</MenuElem>
-           <MenuElem href={'/'}>Мебель</MenuElem>
+            {categorys.map(el => {
+                return <MenuElem href={'/'}>{el.name}</MenuElem>
+            })}
+           {/* <MenuElem active href={'/'}>Электроприборы</MenuElem> */}
+           {/* <MenuElem href={'/'}>Мебель</MenuElem> */}
         </ul>
     )
 }
