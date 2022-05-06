@@ -1,13 +1,17 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import MenuElem from './MenuElem/MenuElem';
 
 
-const Menu = () => {
+const Menu = ({items, active, ...props}) => {
+    //let activeLink = 
     return (
-        <ul className='sidebar__menu'>
-           <NavLink className={'sidebar__menu__elem sidebar__menu__elem__active'} to={'/'}>Стулья</NavLink>
-           <NavLink className={'sidebar__menu__elem'}to={'/'}>Диваны</NavLink>
-           <NavLink className={'sidebar__menu__elem'}to={'/'}>Столы</NavLink>
+        <ul className='menu'>
+            {items.map(el => {
+                return <MenuElem key={el.id} active={el.id == active}>{el.name}</MenuElem>
+            })}
+           {/* <NavLink className={'menu__elem menu__elem_active'} to={'/'}>Стулья</NavLink>
+           <NavLink className={'menu__elem'}to={'/'}>Диваны</NavLink>
+           <NavLink className={'menu__elem'}to={'/'}>Столы</NavLink> */}
         </ul>
     )
 }

@@ -1,15 +1,14 @@
 import React from 'react';
+//import { useDispatch } from 'react-redux';
 import MenuElem from './MenuElem/MenuElem';
 
 
-const Menu = ({categorys, ...props}) => {
+const Menu = ({categorys, active, setActiveCategory, ...props}) => {
     return (
         <ul className='main-menu'>
             {categorys.map(el => {
-                return <MenuElem href={'/'}>{el.name}</MenuElem>
+                return <MenuElem key={el.id} id={el.id} href={'/'} func={setActiveCategory} active={el.id == active}>{el.name}</MenuElem>
             })}
-           {/* <MenuElem active href={'/'}>Электроприборы</MenuElem> */}
-           {/* <MenuElem href={'/'}>Мебель</MenuElem> */}
         </ul>
     )
 }
