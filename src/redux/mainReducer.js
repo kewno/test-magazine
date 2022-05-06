@@ -53,20 +53,19 @@ export const setDataThunkCreator = () => {
         // let filtrCategorys = (el) => {
         //     if (el.parent_id === -1 || el.parent_id === 14 || el.parent_id === 100) return true
         // }
-        let filtrProducts = (el) => { // || el.parent_id == 14
-            if (el.parent_id === 2 || el.parent_id === 3 || el.parent_id === 4 || el.parent_id === 15) return true
-        }
+        // let filtrProducts = (el) => { // || el.parent_id == 14
+        //     if (el.parent_id === 2 || el.parent_id === 3 || el.parent_id === 4 || el.parent_id === 15) return true
+        // }
 
         //let categorys = response.filter(filtrCategorys)
-        let products = response.filter(filtrProducts)
+        //let products = response.filter(filtrProducts)
         //debugger
         let categorys = filtrData(response);
         //debugger
         dispatch(setActiveCategory(categorys[0].id))
         dispatch(setActiveSubcategory(categorys[0].subcategorys[0].id))
         dispatch(setCategorys(categorys))
-        dispatch(setProducts(products))
-        //dispatch(setData(data))
+        //dispatch(setProducts(products))
     }
 }
 
