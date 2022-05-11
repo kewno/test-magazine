@@ -6,13 +6,7 @@ import { setActiveSubcategory } from '../../redux/mainReducer';
 
 
 const Sidebar = ({activeCategory, ...props}) => {
-    // let numberCategory, numberSubCategory;
-    // let arr = window.location.pathname.split('/')
-    // useEffect(() => {
-        
-    //     numberCategory = arr[1]
-    //     numberSubCategory = arr[2]
-    // }, [arr]);
+
     let activeCategorys = useSelector((state) => state.main.categorys[activeCategory])
 
     return (
