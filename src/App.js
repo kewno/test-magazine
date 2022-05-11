@@ -14,7 +14,7 @@ function App() {
         </Route>
         <Route path='/header' element={<Header/>}/>
         <Route exact path='/' element={<MainPage/>}>
-          <Route path=':category/:parentcategory' element={<MainPage />}/>
+          <Route path=':category/:subcategory' element={<MainPage />}/>
         </Route>
       </Routes>
     </BrowserRouter>

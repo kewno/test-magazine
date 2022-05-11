@@ -5,22 +5,23 @@ import '../../styles/mainStyle.scss';
 import Content from './Content/Content';
 import { useDispatch, useSelector } from 'react-redux';
 import {setActiveCategory} from '../../redux/mainReducer'
+import { useParams, Navigate } from 'react-router-dom';
 
 const MainPage = () => {
-    let arr = window.location.pathname.split('/')
-
+    let params = useParams();
     let dispatch = useDispatch()
     useEffect(() => {
-        //dispatch(setActiveCategory(arr[1]))
-        console.log(window.location.pathname)
-        arr = window.location.pathname.split('/')
-    }, [window.location.pathname]);
-    //let categorys = useSelector((state) => state.main.activeCategory)
+        console.log(params)
+    }, [params]);
+    //debugger
+    let startCategory = useSelector((state) => state.main.categorys[0])
+    //startCategory.subcategory[0].id `/${startCategory.id}/${startCategory.id}`
     return (
         <div className='container'>
-            <Header/>
+             {params.category && params.subcategory ? null : <Navigate to={`/14/15`} />} 
+            <Header activeCategory={params.category}/>
             <div className='container__wrap'>
-                <Sidebar activeCategory={arr[1]}/>
+                <Sidebar activeCategory={params.category}/>
                 <Content />
             </div>
         </div>

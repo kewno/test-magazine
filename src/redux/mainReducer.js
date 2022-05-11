@@ -43,13 +43,13 @@ export const setDataThunkCreator = () => {
             let categorys = [];
             data[-1].forEach(el => {
                 let id = el.id
-                categorys[`${id}`] = el
+                categorys.push(el)
             })
             //debugger
             categorys.forEach(el => {
                 let subcategorys = []
                 data[el.id].forEach(el => {
-                    subcategorys[el.id] = el
+                    subcategorys.push(el)
                 })
                 el.subcategorys = subcategorys
                 //debugger
@@ -63,12 +63,6 @@ export const setDataThunkCreator = () => {
         let filtrProducts = (arr) => {
             
         }
-        // let filtrCategorys = (el) => {
-        //     if (el.parent_id === -1 || el.parent_id === 14 || el.parent_id === 100) return true
-        // }
-        // let filtrProducts = (el) => { // || el.parent_id == 14
-        //     if (el.parent_id === 2 || el.parent_id === 3 || el.parent_id === 4 || el.parent_id === 15) return true
-        // }
 
         //let categorys = response.filter(filtrCategorys)
         let products = response.filter(filtrProducts)

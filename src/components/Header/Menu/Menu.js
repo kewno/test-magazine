@@ -7,6 +7,7 @@ const Menu = ({categorys, active, ...props}) => {
     //let arr = window.location.pathname.split('/')
     //debugger
     //let path = arr[1];
+    //debugger
     return (
         <ul className='main-menu'>
             {categorys.map(el => {
