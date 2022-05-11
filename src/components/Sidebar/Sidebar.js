@@ -1,17 +1,29 @@
-import React from 'react';
+import React, { useEffect }  from 'react';
 import '../../styles/sidebarStyle.scss';
 import Menu from './Menu/Menu';
 import {useSelector} from "react-redux";
+import { setActiveSubcategory } from '../../redux/mainReducer';
 
 
-const Sidebar = () => {
-    
-    //const subcategorys = useSelector((state) => state.main)//categorys[0]
-    //const activeSubcategory = useSelector((state) => state.main.activeSubcategory)
-    //debugger
+const Sidebar = ({activeCategory, ...props}) => {
+    // let numberCategory, numberSubCategory;
+    // let arr = window.location.pathname.split('/')
+    // useEffect(() => {
+        
+    //     numberCategory = arr[1]
+    //     numberSubCategory = arr[2]
+    // }, [arr]);
+    let activeCategorys = useSelector((state) => state.main.categorys[activeCategory])
+
     return (
         <div className='sidebar'>
-           {/* <Menu items={subcategorys} active={15}/>  */}
+           {activeCategorys ? <Menu 
+                items={activeCategorys.subcategorys} 
+                active={activeCategory}
+            />
+            :
+            null
+        }
         </div>
     )
 }

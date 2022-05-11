@@ -26,6 +26,7 @@ export const setDataThunkCreator = () => {
     return async (dispatch) => {
         let response = await mainAPI.getCategoty()
         
+
         let filtrData = (arr) => {
             let data = {};
             arr.forEach(el => {
@@ -39,16 +40,28 @@ export const setDataThunkCreator = () => {
                     data[key].push(el)
                 }
             })
+            let categorys = [];
+            data[-1].forEach(el => {
+                let id = el.id
+                categorys[`${id}`] = el
+            })
             //debugger
-            let categorys = [...data[-1]];
             categorys.forEach(el => {
-                //debugger
-                el.subcategorys = data[el.id]
+                let subcategorys = []
+                data[el.id].forEach(el => {
+                    subcategorys[el.id] = el
+                })
+                el.subcategorys = subcategorys
                 //debugger
             })
-            //let a = categorys
             //debugger
+            console.log(categorys)
+            console.log(data)
             return categorys;
+        }
+
+        let filtrProducts = (arr) => {
+            
         }
         // let filtrCategorys = (el) => {
         //     if (el.parent_id === -1 || el.parent_id === 14 || el.parent_id === 100) return true
@@ -58,13 +71,15 @@ export const setDataThunkCreator = () => {
         // }
 
         //let categorys = response.filter(filtrCategorys)
-        //let products = response.filter(filtrProducts)
+        let products = response.filter(filtrProducts)
         //debugger
         let categorys = filtrData(response);
         //debugger
-        dispatch(setActiveCategory(categorys[0].id))
-        dispatch(setActiveSubcategory(categorys[0].subcategorys[0].id))
+        //dispatch(setActiveCategory(categorys[0].id))
+        //debugger
+        //dispatch(setActiveSubcategory(categorys[0].subcategorys[0].id))//Object.keys(categorys)[0]
         dispatch(setCategorys(categorys))
+        //debugger
         //dispatch(setProducts(products))
     }
 }
@@ -73,8 +88,8 @@ let initMain = {
     categorys : [],
     products: [],
     subcategories : [],
-    activeCategory : 0,
-    activeSubcategory : 0
+    //activeCategory : 0,
+    //activeSubcategory : 0
 }
 
 let mainReducer = (state = initMain, action) => {
@@ -89,8 +104,7 @@ let mainReducer = (state = initMain, action) => {
         stateClone.data = [...stateClone.data]
         stateClone.data = action.data
     } else if (action.type === SET_ACTIVE_CATEGORY) {
-        stateClone.activeCategory = action.category
-        //debugger
+        stateClone.activeCategory = Number(action.category)
     } else if (action.type === SET_ACTIVE_SUBCATEGORY) {
         stateClone.activeSubcategory = action.subcategory
     }
@@ -98,3 +112,68 @@ let mainReducer = (state = initMain, action) => {
 }
 
 export default mainReducer;
+
+
+
+
+// let filtrData = (arr) => {
+//     let data = {};
+//     arr.forEach(el => {
+//         let key = el.parent_id
+//         //debugger
+//         if (key in data) {
+//             data[key].push(el)
+//         } else {
+//             data[key] = []
+//             //debugger
+//             data[key].push(el)
+//         }
+//     })
+//     let a = data
+//     let categorys = [];
+//     data[-1].forEach(el => {
+//         let id = el.id
+//         categorys[`${id}`] = el
+//     })
+//     //debugger
+//     categorys.forEach(el => {
+//         //debugger
+//         el.subcategorys = data[el.id]
+//         //debugger
+//     })
+//     let b = categorys
+//     //debugger
+//     return categorys;
+// }
+
+
+// let filtrData = (arr) => {
+//     let data = {};
+//     arr.forEach(el => {
+//         let key = el.parent_id
+//         //debugger
+//         if (key in data) {
+//             data[key].push(el)
+//         } else {
+//             data[key] = []
+//             //debugger
+//             data[key].push(el)
+//         }
+//     })
+//     //let a = data
+//     let categorys = [...data[-1]];
+//     // categorys.forEach(el => {
+//     //     let id = el.id
+//     //     categorys[`${id}`] = el
+//     // })
+//     //debugger
+//     categorys.forEach(el => {
+//         //debugger
+//         el.subcategorys = data[el.id]
+//         //debugger
+//     })
+//     //let b = categorys
+//     //debugger
+//     console.log(categorys)
+//     return categorys;
+// }

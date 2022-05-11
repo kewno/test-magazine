@@ -41,15 +41,24 @@
         color: var(--dark);
         margin: 0 22px 0;
         box-sizing: border-box;
-
+        &.active {
+            border-bottom: 4px solid var(--disable);
+        }
         &:hover {
             border-bottom: 4px solid var(--disable);
         } 
     }
 
-    .main-menu__elem_active {
-        border-bottom: 4px solid var(--acthent);
-    }
+    // .main-menu__elem_active {
+    //     display: inline-block;
+    //     height: 100%;
+    //     font-size: 18px;
+    //     line-height: 60px;
+    //     color: var(--dark);
+    //     margin: 0 22px 0;
+    //     box-sizing: border-box;
+    //     border-bottom: 4px solid var(--acthent);
+    // }
 }
 
 .basket {

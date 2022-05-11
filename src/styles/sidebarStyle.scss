@@ -10,13 +10,18 @@
     flex-basis: 325px;
 
     .menu__elem {
-        border-bottom: 1px solid var(--grey);
+        border-top: 1px solid var(--grey);
         font-size: 16px;
         line-height: 19px;
         color: var(--dark);
         padding: 15.53px 0 17.75px 30px;
-
+        //border-top: 1px solid #E4E4E4;
+       /// box-sizing: border-box;
         &:hover {
+            color: var(--acthent);
+            padding: 20px 0 15.7px 30px;
+        }
+        &.active {
             color: var(--acthent);
             padding: 20px 0 15.7px 30px;
         }

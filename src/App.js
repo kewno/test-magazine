@@ -13,7 +13,9 @@ function App() {
           <Route path=':sellectCategory' element={<UiKit />}/>
         </Route>
         <Route path='/header' element={<Header/>}/>
-        <Route exact path='/' element={<MainPage/>}/>
+        <Route exact path='/' element={<MainPage/>}>
+          <Route path=':category/:parentcategory' element={<MainPage />}/>
+        </Route>
       </Routes>
     </BrowserRouter>
   );

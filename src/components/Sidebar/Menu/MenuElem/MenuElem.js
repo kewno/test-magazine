@@ -1,11 +1,20 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 
 
-const MenuElem = ({children, href, active, ...props}) => {
-    let classLink = active ? 'menu__elem_active' : 'menu__elem'
+const MenuElem = ({id, children, active, func, ...props}) => {
+    //let classLink = active ? 'menu__elem_active' : 'menu__elem'
+    
+    // const dispatch = useDispatch()
+    // let href = window.location.pathname
+    // let handleClick = () => {
+    //     console.log(href == window.location.pathname)
+    //     debugger
+    // }
+    
     return (
-           <NavLink className={classLink}to={'/'}>{children}</NavLink>
+           <NavLink className={'menu__elem'} to={`/${active}/${id}`} >{children}</NavLink> //to={'/'}  onClick={()=> handleClick(id)} onClick={()=> setTimeout(handleClick, 1000)}
     )
 }
 

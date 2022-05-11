@@ -3,11 +3,14 @@ import React from 'react';
 import MenuElem from './MenuElem/MenuElem';
 
 
-const Menu = ({categorys, active, setActiveCategory, ...props}) => {
+const Menu = ({categorys, active, ...props}) => {
+    //let arr = window.location.pathname.split('/')
+    //debugger
+    //let path = arr[1];
     return (
         <ul className='main-menu'>
             {categorys.map(el => {
-                return <MenuElem key={el.id} id={el.id} href={'/'} func={setActiveCategory} active={el.id == active}>{el.name}</MenuElem>
+                return <MenuElem key={el.id} href={`/${el.id}/100`} active={active}>{el.name}</MenuElem>
             })}
         </ul>
     )

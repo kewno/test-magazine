@@ -4,27 +4,33 @@ import MainLogo from './MainLogo/MainLogo';
 import '../../styles/headerStyle.scss';
 import Menu from './Menu/Menu';
 import Basket from './Basket/Basket';
-import {setActiveCategory, setDataThunkCreator} from '../../redux/mainReducer'
-
+import {setDataThunkCreator} from '../../redux/mainReducer'
+import {Navigate} from "react-router-dom";
 
 const Header = ({coll = 15, ...props}) => {
-    
-    
+    let numberCategory;
     const dispatch = useDispatch()
     useEffect(() => {
         dispatch(setDataThunkCreator())
     }, []);
+    let [a, pathCategory, pathSubCategory] = window.location.pathname.split('/')
+    useEffect(() => {
+        
+        numberCategory = pathCategory
+    }, [numberCategory]);
+
     const categorys = useSelector((state) => state.main.categorys)
-    const activeCategory = useSelector((state) => state.main.activeCategory)
-    //debugger
+    //const activeCategory = useSelector((state) => state.main.activeCategory)
+
     return (
         <div className='header'>
+            {pathCategory && pathSubCategory ? null : <Navigate to="/14/12" />}
+            {/* <Redirect/> */}
             <div className='header__wrap-logo-menu'>
                 <MainLogo />
                 <Menu 
                     categorys={categorys} 
-                    active={activeCategory}
-                    setActiveCategory={setActiveCategory}
+                    active={numberCategory}
                 />
             </div>
             <Basket coll={coll}/>
