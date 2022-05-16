@@ -26,9 +26,8 @@ export const setDataThunkCreator = () => {
     return async (dispatch) => {
         let response = await mainAPI.getCategoty()
         
-
+        let data = {};
         let filtrData = (arr) => {
-            let data = {};
             arr.forEach(el => {
                 let key = el.parent_id
                 //debugger
@@ -52,20 +51,14 @@ export const setDataThunkCreator = () => {
                     subcategorys.push(el)
                 })
                 el.subcategorys = subcategorys
-                //debugger
             })
-            //debugger
-            console.log(categorys)
-            console.log(data)
+            //console.log(categorys)
+            //console.log(data)
             return categorys;
         }
 
-        let filtrProducts = (arr) => {
-            
-        }
-
         //let categorys = response.filter(filtrCategorys)
-        let products = response.filter(filtrProducts)
+        let products; //= filtrProducts(data)
         //debugger
         let categorys = filtrData(response);
         //debugger
@@ -73,15 +66,19 @@ export const setDataThunkCreator = () => {
         //debugger
         //dispatch(setActiveSubcategory(categorys[0].subcategorys[0].id))//Object.keys(categorys)[0]
         dispatch(setCategorys(categorys))
+        dispatch(setData(data))
         //debugger
         //dispatch(setProducts(products))
     }
 }
 
 let initMain = {
-    categorys : [],
+    data : [],
+    categorys : [
+        {id: 14, parent_id: -1, name: 'Электроприборы', subcategorys: [{id: 15, parent_id: 14, name: 'Светильники'}, {id: 16, parent_id: 14, name: 'Вентиляторы'}]},
+        {id: 100, parent_id: -1, name: 'Мебель', subcategorys: [{id: 3, parent_id: 100, name: 'Диваны'}, {id: 4, parent_id: 100, name: 'Столы'}, {id: 2, parent_id: 100, name: 'Стулья'}]}],
     products: [],
-    subcategories : [],
+    //subcategories : [],
     //activeCategory : 0,
     //activeSubcategory : 0
 }
@@ -95,7 +92,7 @@ let mainReducer = (state = initMain, action) => {
         stateClone.products = [...stateClone.products]
         stateClone.products = action.products
     } else if (action.type === SET_DATA) {
-        stateClone.data = [...stateClone.data]
+        stateClone.data = {...stateClone.data}
         stateClone.data = action.data
     } else if (action.type === SET_ACTIVE_CATEGORY) {
         stateClone.activeCategory = Number(action.category)

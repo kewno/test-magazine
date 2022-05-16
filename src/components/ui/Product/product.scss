@@ -1,12 +1,26 @@
+.products {
+    flex: 1 1 auto;
+    height: 100vh;
+    background: var(--back-product);
+    padding-top: 53px;
+}
+
 .product {
     width: 353px;
     height: 418px;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.08);
     border-radius: 10px;
+
+    .product__picture {
+        width: 353px;
+        height:246px;
+        border-radius: 0 0 12px 12px;
+    }
 }
 
 .product__wrap-text-button {
     margin-left: 30px;
+    margin-top: 20px;
 }
 
 .product__wrap-text {

@@ -4,9 +4,11 @@
     width: 600px;
     justify-content: space-between;
 }
+
 .input {
     display: flex;
     flex-direction: column;
+    width: 100%;
     .input__name {
         font-size: 16px;
         line-height: 19px;
@@ -16,8 +18,13 @@
         border: 1px solid var(--black);
         box-sizing: border-box;
         border-radius: 5px;
-        width: 275px;
+        width: 100%; //275px
         height: 41px;
+        color: var(--black);
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 19px;
+        padding-left: 16px;
     }
     .input__enter_error {
         border: 1px solid var(--acthent);

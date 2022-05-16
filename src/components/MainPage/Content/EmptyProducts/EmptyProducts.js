@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-const EmptyProducts = () => {
+const EmptyProducts = ({...props}) => {
     return (
         <div className='empty-products-wrap'>
             <div className='empty-products'>

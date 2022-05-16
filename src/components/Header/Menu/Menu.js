@@ -4,14 +4,12 @@ import MenuElem from './MenuElem/MenuElem';
 
 
 const Menu = ({categorys, active, ...props}) => {
-    //let arr = window.location.pathname.split('/')
-    //debugger
-    //let path = arr[1];
     //debugger
     return (
         <ul className='main-menu'>
             {categorys.map(el => {
-                return <MenuElem key={el.id} href={`/${el.id}/100`} active={active}>{el.name}</MenuElem>
+                //debugger
+                return <MenuElem key={el.id} href={`/${el.id}/${el.subcategorys[0].id}`} active={active}>{el.name}</MenuElem>
             })}
         </ul>
     )

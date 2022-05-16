@@ -1,22 +1,22 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import {connect, useDispatch, useSelector} from "react-redux";
 import MainLogo from './MainLogo/MainLogo';
 import '../../styles/headerStyle.scss';
 import Menu from './Menu/Menu';
 import Basket from './Basket/Basket';
 import {setDataThunkCreator} from '../../redux/mainReducer'
+import PopUp from '../ui/PopUp/PopUp';
 
 const Header = ({activeCategory, coll = 15, ...props}) => {
-    // let numberCategory;
-    const dispatch = useDispatch()
-    useEffect(() => {
-        dispatch(setDataThunkCreator())
-    }, []);
-
-    const categorys = useSelector((state) => state.main.categorys)
+    // const dispatch = useDispatch()
+    // useEffect(() => {
+    //     dispatch(setDataThunkCreator())
+    // }, []);
+    let [checkPopUp, setCheckPopUp] = useState(false);
+    let categorys = useSelector((state) => state.main.categorys)
+    //let startCategory = useSelector((state) => state.main.categorys.filter( elem => elem.id == el.id))
     return (
         <div className='header'>
-            {/* <Redirect/> */}
             <div className='header__wrap-logo-menu'>
                 <MainLogo />
                 <Menu 
@@ -24,7 +24,8 @@ const Header = ({activeCategory, coll = 15, ...props}) => {
                     active={activeCategory}
                 />
             </div>
-            <Basket coll={coll}/>
+            <Basket coll={coll} func={setCheckPopUp}/>
+            <PopUp toggle={setCheckPopUp} status={checkPopUp} text='Оформить заказ' {...props}/>
         </div>
     )
 }

@@ -1,17 +1,22 @@
 .tabs {
     display: flex;
     flex-direction: column;
-    max-width: 435px;
+    //max-width: 435px;
     
     .tabs__content {
         //flex: 1 1 auto;
         //height: 300px;//100%
+        width: 100%;
+    }
+    .tabs__tab {
+        width: 100%;
     }
 }
 
 .container-tab {
     display: flex;
     justify-content: space-between;
+    max-width: 435px;
 }
 
 .container-tab__elem {

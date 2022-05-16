@@ -11,15 +11,20 @@ const UiKit = (props) => {
     let [textOne, setTextOne] = useState('');
     let [textTwo, setTextTwo] = useState('');
     let [checkPopUp, setCheckPopUp] = useState(false);
-    let [selectedTab, setActiveTab] = useState('description');
+    let [selectedTab, setActiveTab] = useState('characteristics');
+    //console.log('selectedTab; ' + selectedTab);
     return (
         <div className='container'>
             <div className='container__inputs'> 
-                <Input type='text' value={textOne} onChange={e => setTextOne(e.target.value)} {...props}>Имя</Input>
-                <Input type='text' value={textTwo} onChange={e => setTextTwo(e.target.value)} textError='Обязательное поле'>Имя</Input>
+                <div className='wrap-input'>
+                    <Input type='text' value={textOne} onChange={e => setTextOne(e.target.value)} {...props}>Имя</Input>
+                </div>
+                <div className='wrap-input'>
+                    <Input type='text' value={textTwo} onChange={e => setTextTwo(e.target.value)} textError='Обязательное поле'>Имя</Input>
+                </div>
             </div>
             
-            <Tabs selectedTab={selectedTab} changeTab={setActiveTab}>
+           <Tabs selectedTab={selectedTab} changeTab={setActiveTab}> {/*selectedTab={selectedTab} changeTab={setActiveTab} */}
                 <Tab name="description" title="Описание">
                     Описание
                 </Tab>

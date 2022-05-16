@@ -15,6 +15,9 @@ function App() {
         <Route path='/header' element={<Header/>}/>
         <Route exact path='/' element={<MainPage/>}>
           <Route path=':category/:subcategory' element={<MainPage />}/>
+          <Route path=':category/:subcategory/:tab' element={<MainPage />}/>
+          {/* <Route path=':category/:subcategory/:id-pop-up' element={<MainPage />}/> */}
+          {/* <Route path="/*" element={<MainPage />} /> */}
         </Route>
       </Routes>
     </BrowserRouter>

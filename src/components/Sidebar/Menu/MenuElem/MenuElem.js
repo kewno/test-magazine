@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 
 
-const MenuElem = ({id, children, active, func, ...props}) => {
+const MenuElem = ({id, children, active, func, href, ...props}) => {
     //let classLink = active ? 'menu__elem_active' : 'menu__elem'
     
     // const dispatch = useDispatch()
@@ -14,7 +14,7 @@ const MenuElem = ({id, children, active, func, ...props}) => {
     // }
     
     return (
-           <NavLink className={'menu__elem'} to={`/${active}/${id}`} >{children}</NavLink> //to={'/'}  onClick={()=> handleClick(id)} onClick={()=> setTimeout(handleClick, 1000)}
+           <NavLink className={'menu__elem'} to={href} >{children}</NavLink> //to={'/'}  onClick={()=> handleClick(id)} onClick={()=> setTimeout(handleClick, 1000)}
     )
 }
 

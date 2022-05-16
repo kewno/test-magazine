@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom';
 
 const MenuElem = ({active, href, children, func, ...props}) => {
     //let linkClass = active ? 'main-menu__elem main-menu__elem_active' : 'main-menu__elem'
-    let linkClass = 'main-menu__elem'
+    //let linkClass = 'main-menu__elem'
     
     //const dispatch = useDispatch()
 
@@ -15,10 +15,8 @@ const MenuElem = ({active, href, children, func, ...props}) => {
     
     return (
         <NavLink 
-            className={linkClass} 
+            className={'main-menu__elem'} 
             //onClick={()=> handleClick(id)}
-            //  activeClassName={'main-menu__elem_active'}
-            //active
             to={href}>
             {children}
         </NavLink>

@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import Picture from '../Picture/Picture';
 import './input.scss';
 
 const Input = ({children, textError, type, ...props}) => {
