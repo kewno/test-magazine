@@ -30,7 +30,7 @@ const MainPage = () => {
     return (
         <div className='container'>
             {params.category ? null : <Navigate to={`/${startCategory.id}`} />}
-            {params.category || params.subcategory ? <Navigate to={`/${params.category}/${activeCategory[0].subcategorys[0].id}`} /> : null}
+            {!(params.subcategory) && (params.category) && !(params.category && params.subcategory) ? <Navigate to={`/${params.category}/${activeCategory[0].subcategorys[0].id}`} /> : null}
             {/* {!params.category && params.subcategory ? null : <Navigate to={`/${params.category}/${activeCategory[0].subcategorys[0].id}`} />} */}
             {/* {params.category && params.subcategory ? null : <Navigate to={`/${startCategory.id}/${startCategory.subcategorys[0].id}`} />} */}
             <Header activeCategory={params.category} />
