@@ -15,20 +15,27 @@ const MainPage = () => {
         dispatch(setDataThunkCreator())
     }, []);
     let startCategory = useSelector((state) => state.main.categorys[0])
-    let categorys = useSelector((state) => state.main.categorys[0])
+    let categorys = useSelector((state) => state.main.categorys)
+    
+    let activeCategory = categorys.filter(el => {
+        if (el.id == Number(params.category)) return el.id
+    })
+    //console.log(activeCategory[0].subcategorys[0].id)
     //debugger
     //let startSabCategory = startCategory.subcategorys[0].id
-    //debugger
-    //debugger
     //startCategory.subcategory[0].id `/${startCategory.id}/${startCategory.id}`'/14/15'
+    //<Navigate to={`/${startCategory.id}/${startCategory.subcategorys[0].id}`} />}
+    
     //debugger
-    //<Navigate to={`/${startCategory.id}/${startCategory.subcategorys[0].id}`} />} 
     return (
         <div className='container'>
-            {/* <Navigate to={`/14/15`} /> */}
-             {params.category && params.subcategory ? null : <Navigate to={`/14/15`} />} 
+            {params.category ? null : <Navigate to={`/${startCategory.id}`} />}
+            {params.category || params.subcategory ? <Navigate to={`/${params.category}/${activeCategory[0].subcategorys[0].id}`} /> : null}
+            {/* {!params.category && params.subcategory ? null : <Navigate to={`/${params.category}/${activeCategory[0].subcategorys[0].id}`} />} */}
+            {/* {params.category && params.subcategory ? null : <Navigate to={`/${startCategory.id}/${startCategory.subcategorys[0].id}`} />} */}
             <Header activeCategory={params.category} />
             <div className='container__wrap'>
+                {/* <Sidebar activeCategory={params.category} /> */}
                 <Sidebar activeCategory={params.category} />
                 <Content subcategory={params.subcategory}/>
             </div>

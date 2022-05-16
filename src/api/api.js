@@ -18,5 +18,9 @@ export let mainAPI = {
     getCategoty() {
         return instanse.get(``)
             .then(response => response.data)
+    },
+    getDataProduct(id) {
+        return instanse.get(`?action=show_product&id=${id}`)
+            .then(response => response.data)
     }
 }

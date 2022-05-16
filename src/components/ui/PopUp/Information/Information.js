@@ -1,4 +1,5 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import Tab from '../../Tabs/Tab/Tab';
 import Tabs from '../../Tabs/Tabs';
 import Characteristics from './Characteristics/Characteristics/Characteristics';
@@ -9,25 +10,21 @@ import SendReviews from './SendReviews/SendReviews';
 
 
 const Information = ({selectedTab, setActiveTab, src, name, price, reviews, options, ...props}) => {
-    //debugger
-    //console.log(selectedTab)
+
+    let product = useSelector((state) => state.main.activeProduct)
+    //console.log(product)
     return (
         <div className='information'>
-            <InformationHead src={src} name={name} price={price}/>
+            <InformationHead src={product.img} name={product.name} price={product.price}/>
             <Tabs selectedTab={selectedTab} changeTab={setActiveTab}>
                 <Tab name="description" title="Описание">
-                    <Description>{`VIKING A3 - удобное кресло, которое станет удачным выбором 
-                        для домашнего использования и для офиса. Кресло выдерживает нагрузку до 181 кг. 
-                        Высота сиденья регулируется при помощи надежного механизма. Спинка качается, 
-                        при желании ее можно прочно зафиксировать в вертикальном положении. Эргономичная 
-                        конструкция помогает снизить нагрузку на мышцы и уменьшить усталость от долгой 
-                        работы за компьютером. Кресло закреплено на прочной и устойчивой`}</Description>
+                    <Description>{product.descr}</Description>
                 </Tab>
                 <Tab name="characteristics" title="Характеристики">
-                    <Characteristics options={options}/>
+                    <Characteristics options={product.props}/>
                 </Tab>
                 <Tab name="reviews" title="Отзывы">
-                    <Reviews reviews={reviews}/>
+                    <Reviews reviews={product.reviews}/>
                 </Tab>
                 <Tab name="send-reviews" title="Оставить отзыв">
                     <SendReviews/>

@@ -1,26 +1,31 @@
 import React, { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
+import { useDispatch } from 'react-redux';
+import { setDataProductThunkCreator } from '../../../redux/mainReducer';
 import Checkout from './Checkout/Checkout';
 import EmptyPopUp from './EmptyPopUp/EmptyPopUp';
 import Information from './Information/Information';
 import './pop-up.scss';
 const containerPopUp = document.querySelector('#pop-up')
 
-const PopUp = ({type, text, status, toggle, src, name, price, reviews, options, ...props}) => {
-    //debugger 
+const PopUp = ({type, text, status, toggle, src, name, price, reviews, options, idProduct, ...props}) => {
+    
     let closePopUp = (e) => {
         if (e.target.className == "pop-up__wrap") {
             return toggle(false)
         }
     }
+
+    let dispatch = useDispatch()
+    
     let [selectedTab, setActiveTab] = useState('description');
     const element = document.createElement('div')
     {status ? element.className = 'pop-up__wrap' : element.className = 'pop-up__wrap_close'}
     element.onclick = closePopUp
     
-    useEffect(() => {
+    useEffect(() => {   
+        dispatch(setDataProductThunkCreator(idProduct))
         containerPopUp.appendChild(element)
-
         return () => {
             containerPopUp.removeChild(element)
         };
@@ -37,11 +42,11 @@ const PopUp = ({type, text, status, toggle, src, name, price, reviews, options, 
                         {/* <Checkout/> */}
                         {/* {type === 'information' ? <Information selectedTab={selectedTab} setActiveTab={setActiveTab}/> : null} */}
                         <Information
-                            name={name}
-                            price={price}
-                            src={src}
-                            reviews={reviews}
-                            options={options} 
+                            // name={name}
+                            // price={price}
+                            // src={src}
+                            // reviews={reviews}
+                            // options={options} 
                             selectedTab={selectedTab} 
                             setActiveTab={setActiveTab}/>
                     </div>, element)

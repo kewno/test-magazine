@@ -4,7 +4,7 @@ import PopUp from '../PopUp/PopUp';
 import './product.scss';
 
 
-const Product = ({name, price, textButton, src, options, reviews, ...props}) => {
+const Product = ({id, name, price, textButton, src, options, reviews, setCheckPopUp, setIdProduct, ...props}) => {
     let paddingPrice = (price) => {
         let str = String(price)
         let priceLength = str.length
@@ -14,16 +14,17 @@ const Product = ({name, price, textButton, src, options, reviews, ...props}) => 
         return `${start} ${end}`
     }
     
-    let handleClick = (check) => {
+    let handleClick = (id) => {
         //console.log(check.className)
         //debugger
-        setCheckPopUp(check)
+        setIdProduct(id)
+        setCheckPopUp(true)
     }
     
-    let [checkPopUp, setCheckPopUp] = useState(false);
+    
 
     return (
-        <div className='product' onClick={() => handleClick(true)}>
+        <div className='product' onClick={() => handleClick(id)}>
             {/* <img className='product__picture' src={require('../../../img/product.png')}/> */}
             <img className='product__picture' src={src}/>
             {/* <Picture path={props.picture}/> */}
@@ -34,16 +35,6 @@ const Product = ({name, price, textButton, src, options, reviews, ...props}) => 
                 </div>
                 <Button href='/'>{textButton}</Button>
             </div>
-            <PopUp
-                type={'information'}
-                toggle={setCheckPopUp} 
-                status={checkPopUp}
-                name={name}
-                price={price}
-                src={src}
-                reviews={reviews}
-                options={options}
-                text='Информация' {...props}/>
         </div>
     )
 }

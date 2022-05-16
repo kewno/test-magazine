@@ -6,13 +6,12 @@ import { setActiveSubcategory } from '../../redux/mainReducer';
 
 
 const Sidebar = ({activeCategory, ...props}) => {
-
     let activeCategorys = useSelector((state) => state.main.categorys.filter( el => el.id == activeCategory))
-    let categorys = useSelector((state) => state.main.categorys)
+        //let categorys = useSelector((state) => state.main.categorys)
     //debugger
     return (
         <div className='sidebar'>
-           {activeCategorys ? <Menu 
+           {activeCategory ? <Menu 
                 items={activeCategorys[0].subcategorys} 
                 active={activeCategory}
             />

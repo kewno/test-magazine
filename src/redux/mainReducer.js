@@ -3,6 +3,7 @@ import {mainAPI} from "../api/api";
 const SET_DATA = 'SET_DATA';
 const SET_CATEGORYS = 'SET_CATEGORYS';
 const SET_PRODUCTS = 'SET_PRODUCTS';
+const SET_DATA_PRODUCT = 'SET_DATA_PRODUCT';
 const SET_ACTIVE_CATEGORY = 'SET_ACTIVE_CATEGORY';
 const SET_ACTIVE_SUBCATEGORY = 'SET_ACTIVE_SUBCATEGORY';
 
@@ -15,11 +16,22 @@ export const setCategorys = (categorys) => {
 export const setProducts = (products) => {
     return {type: SET_PRODUCTS, products};
 }
+export const setDataProduct = (product) => {
+    return {type: SET_DATA_PRODUCT, product};
+}
 export const setActiveCategory = (category) => {
     return {type: SET_ACTIVE_CATEGORY, category};
 }
 export const setActiveSubcategory = (subcategory) => {
     return {type: SET_ACTIVE_SUBCATEGORY, subcategory};
+}
+
+export const setDataProductThunkCreator = (id) => {
+    return async (dispatch) => {
+        let response = await mainAPI.getDataProduct(id)
+        //debugger
+        dispatch(setDataProduct(response))
+    }
 }
 
 export const setDataThunkCreator = () => {
@@ -30,12 +42,10 @@ export const setDataThunkCreator = () => {
         let filtrData = (arr) => {
             arr.forEach(el => {
                 let key = el.parent_id
-                //debugger
                 if (key in data) {
                     data[key].push(el)
                 } else {
                     data[key] = []
-                    //debugger
                     data[key].push(el)
                 }
             })
@@ -44,7 +54,6 @@ export const setDataThunkCreator = () => {
                 let id = el.id
                 categorys.push(el)
             })
-            //debugger
             categorys.forEach(el => {
                 let subcategorys = []
                 data[el.id].forEach(el => {
@@ -52,8 +61,6 @@ export const setDataThunkCreator = () => {
                 })
                 el.subcategorys = subcategorys
             })
-            //console.log(categorys)
-            //console.log(data)
             return categorys;
         }
 
@@ -78,6 +85,7 @@ let initMain = {
         {id: 14, parent_id: -1, name: 'Электроприборы', subcategorys: [{id: 15, parent_id: 14, name: 'Светильники'}, {id: 16, parent_id: 14, name: 'Вентиляторы'}]},
         {id: 100, parent_id: -1, name: 'Мебель', subcategorys: [{id: 3, parent_id: 100, name: 'Диваны'}, {id: 4, parent_id: 100, name: 'Столы'}, {id: 2, parent_id: 100, name: 'Стулья'}]}],
     products: [],
+    activeProduct: {}
     //subcategories : [],
     //activeCategory : 0,
     //activeSubcategory : 0
@@ -98,6 +106,8 @@ let mainReducer = (state = initMain, action) => {
         stateClone.activeCategory = Number(action.category)
     } else if (action.type === SET_ACTIVE_SUBCATEGORY) {
         stateClone.activeSubcategory = action.subcategory
+    } else if (action.type === SET_DATA_PRODUCT) {
+        stateClone.activeProduct = {...action.product}
     }
     return stateClone;
 }
