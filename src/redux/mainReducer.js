@@ -110,7 +110,14 @@ let mainReducer = (state = initMain, action) => {
     } else if (action.type === SET_DATA_PRODUCT) {
         stateClone.activeProduct = {...action.product}
     } else if (action.type === TOGGLE_ORDER_PRODUCTS) {
-        stateClone.orderProducts.push(action.id) //= {...action.product}
+        stateClone.orderProducts = [...stateClone.orderProducts]
+        //stateClone.orderProducts.push(action.id)
+        let index = stateClone.orderProducts.indexOf(action.id)
+        if (index != -1) {
+            stateClone.orderProducts.splice(index, 1);
+        } else {
+            stateClone.orderProducts.push(action.id)
+        }
     }
     return stateClone;
 }

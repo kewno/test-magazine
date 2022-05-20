@@ -4,7 +4,7 @@ import PopUp from '../../../ui/PopUp/PopUp';
 import Product from '../../../ui/Product/Product';
 
 
-const Products = ({products, ...props}) => {
+const Products = ({products, toggleOrderProducts, ...props}) => {
     let [checkPopUp, setCheckPopUp] = useState(false);
     let [idProduct, setIdProduct] = useState(-1);
     
@@ -22,7 +22,8 @@ const Products = ({products, ...props}) => {
                             price={el.price} 
                             setCheckPopUp={setCheckPopUp} 
                             setIdProduct={setIdProduct}
-                            //textButton='Добавить в корзину' 
+                            //textButton='Добавить в корзину'
+                            toggleOrderProducts={toggleOrderProducts} 
                             options={el.props} 
                             reviews={el.reviews}
                             add={orderProduct.includes(el.id)}

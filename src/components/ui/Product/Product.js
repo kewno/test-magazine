@@ -1,11 +1,11 @@
 import React, {useState} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { setDataProductThunkCreator, toggleOrderProducts } from '../../../redux/mainReducer';
+import { setDataProductThunkCreator} from '../../../redux/mainReducer';
 import Button from '../Button/Button';
 import './product.scss';
 
 
-const Product = ({id, name, add, price, src, options, reviews, setCheckPopUp, setIdProduct, ...props}) => {
+const Product = ({id, name, add, price, src, options, reviews, setCheckPopUp, setIdProduct, toggleOrderProducts, ...props}) => {
     let paddingPrice = (price) => {
         let str = String(price)
         let priceLength = str.length
