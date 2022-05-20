@@ -14,7 +14,6 @@ const Header = ({activeCategory, coll = 15, ...props}) => {
     // }, []);
     let [checkPopUp, setCheckPopUp] = useState(false);
     let categorys = useSelector((state) => state.main.categorys)
-    //let startCategory = useSelector((state) => state.main.categorys.filter( elem => elem.id == el.id))
     return (
         <div className='header'>
             <div className='header__wrap-logo-menu'>
@@ -25,7 +24,7 @@ const Header = ({activeCategory, coll = 15, ...props}) => {
                 />
             </div>
             <Basket coll={coll} func={setCheckPopUp}/>
-            <PopUp toggle={setCheckPopUp} status={checkPopUp} text='Оформить заказ' {...props}/>
+            <PopUp type={'basket'} toggle={setCheckPopUp} status={checkPopUp} text='Оформить заказ' {...props}/>
         </div>
     )
 }

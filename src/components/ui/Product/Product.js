@@ -1,4 +1,6 @@
 import React, {useState} from 'react';
+import { useDispatch } from 'react-redux';
+import { setDataProductThunkCreator } from '../../../redux/mainReducer';
 import Button from '../Button/Button';
 import PopUp from '../PopUp/PopUp';
 import './product.scss';
@@ -13,10 +15,9 @@ const Product = ({id, name, price, textButton, src, options, reviews, setCheckPo
         let start = str.substr(0, startLength)
         return `${start} ${end}`
     }
-    
+    let dispatch = useDispatch()
     let handleClick = (id) => {
-        //console.log(check.className)
-        //debugger
+        dispatch(setDataProductThunkCreator(id))
         setIdProduct(id)
         setCheckPopUp(true)
     }

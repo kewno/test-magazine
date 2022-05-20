@@ -29,7 +29,6 @@ export const setActiveSubcategory = (subcategory) => {
 export const setDataProductThunkCreator = (id) => {
     return async (dispatch) => {
         let response = await mainAPI.getDataProduct(id)
-        //debugger
         dispatch(setDataProduct(response))
     }
 }

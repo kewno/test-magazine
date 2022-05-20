@@ -2,8 +2,6 @@ import React, {useState} from 'react';
 
 
 const Description = ({children, ...props}) => {
-    
-    //let [selectedTab, setActiveTab] = useState('description');
 
     return (
         <div className='description'>

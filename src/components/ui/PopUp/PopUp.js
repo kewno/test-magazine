@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { setDataProductThunkCreator } from '../../../redux/mainReducer';
 import Checkout from './Checkout/Checkout';
 import EmptyPopUp from './EmptyPopUp/EmptyPopUp';
 import Information from './Information/Information';
 import './pop-up.scss';
-const containerPopUp = document.querySelector('#pop-up')
+const containerPopUp = document.querySelector('#root')
 
 const PopUp = ({type, text, status, toggle, src, name, price, reviews, options, idProduct, ...props}) => {
-    
+    //debugger
     let closePopUp = (e) => {
         if (e.target.className == "pop-up__wrap") {
             return toggle(false)
@@ -22,15 +22,14 @@ const PopUp = ({type, text, status, toggle, src, name, price, reviews, options, 
     const element = document.createElement('div')
     {status ? element.className = 'pop-up__wrap' : element.className = 'pop-up__wrap_close'}
     element.onclick = closePopUp
-    
-    useEffect(() => {   
-        dispatch(setDataProductThunkCreator(idProduct))
+    let idActiveproduct = useSelector((state) => state.main.activeProduct.id)
+
+    useEffect(() => {
         containerPopUp.appendChild(element)
         return () => {
             containerPopUp.removeChild(element)
         };
     });
-    
     return (
         createPortal(<div className='pop-up'>
                         <div className='pop-up__header'>
@@ -40,15 +39,21 @@ const PopUp = ({type, text, status, toggle, src, name, price, reviews, options, 
                         {/* <EmptyPopUp type={'basket'} src='basket-big.png'>{'В корзине ничего нет'}</EmptyPopUp> */}
                         {/* <EmptyPopUp type={'marker'} src='check-marker.png'>{'Заказ успешно создан'}</EmptyPopUp> */}
                         {/* <Checkout/> */}
-                        {/* {type === 'information' ? <Information selectedTab={selectedTab} setActiveTab={setActiveTab}/> : null} */}
-                        <Information
-                            // name={name}
-                            // price={price}
-                            // src={src}
-                            // reviews={reviews}
-                            // options={options} 
-                            selectedTab={selectedTab} 
-                            setActiveTab={setActiveTab}/>
+                        {type == "basket" ?
+                            <Checkout/>
+                        :
+                        null}
+                        {type == "information" ?
+                            <Information
+                                // name={name}
+                                // price={price}
+                                // src={src}
+                                // reviews={reviews}
+                                // options={options} 
+                                selectedTab={selectedTab} 
+                                setActiveTab={setActiveTab}/>
+                            :
+                        null}
                     </div>, element)
         
     )

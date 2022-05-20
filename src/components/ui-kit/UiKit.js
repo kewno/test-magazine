@@ -6,15 +6,21 @@ import Input from '../ui/Input/Input'
 import Product from '../ui/Product/Product';
 import Tabs from '../ui/Tabs/Tabs';
 import Tab from '../ui/Tabs/Tab/Tab'
+import Stars from '../ui/Stars/Stars';
 
 const UiKit = (props) => {
     let [textOne, setTextOne] = useState('');
     let [textTwo, setTextTwo] = useState('');
     let [checkPopUp, setCheckPopUp] = useState(false);
     let [selectedTab, setActiveTab] = useState('characteristics');
+    let [collSelected, setCollSelected] = useState(0);
     //console.log('selectedTab; ' + selectedTab);
     return (
         <div className='container'>
+            <div>
+                <Stars collSelected={collSelected} setCollSelected={setCollSelected}/>
+            </div>
+
             <div className='container__inputs'> 
                 <div className='wrap-input'>
                     <Input type='text' value={textOne} onChange={e => setTextOne(e.target.value)} {...props}>Имя</Input>

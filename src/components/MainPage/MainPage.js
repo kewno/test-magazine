@@ -4,7 +4,6 @@ import Sidebar from '../Sidebar/Sidebar';
 import '../../styles/mainStyle.scss';
 import Content from './Content/Content';
 import { useDispatch, useSelector } from 'react-redux';
-import {setActiveCategory} from '../../redux/mainReducer'
 import { useParams, Navigate } from 'react-router-dom';
 import {setDataThunkCreator} from '../../redux/mainReducer'
 
@@ -26,7 +25,6 @@ const MainPage = () => {
     //startCategory.subcategory[0].id `/${startCategory.id}/${startCategory.id}`'/14/15'
     //<Navigate to={`/${startCategory.id}/${startCategory.subcategorys[0].id}`} />}
     
-    //debugger
     return (
         <div className='container'>
             {params.category ? null : <Navigate to={`/${startCategory.id}`} />}
