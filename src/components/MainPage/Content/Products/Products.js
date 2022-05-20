@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import { useSelector } from 'react-redux';
 import PopUp from '../../../ui/PopUp/PopUp';
 import Product from '../../../ui/Product/Product';
 
@@ -6,21 +7,26 @@ import Product from '../../../ui/Product/Product';
 const Products = ({products, ...props}) => {
     let [checkPopUp, setCheckPopUp] = useState(false);
     let [idProduct, setIdProduct] = useState(-1);
-    return (
-        
+    
+    let orderProduct = useSelector(state => state.main.orderProducts)
+    
+    return ( 
         <div className='products'>
             {products.map(el => {
+                
                 return <Product 
-                        key={el.id} 
-                        id={el.id} 
-                        src={el.img} 
-                        name={el.name} 
-                        price={el.price} 
-                        setCheckPopUp={setCheckPopUp} 
-                        setIdProduct={setIdProduct}
-                        textButton='Добавить в корзину' 
-                        options={el.props} 
-                        reviews={el.reviews}/>
+                            key={el.id} 
+                            id={el.id} 
+                            src={el.img} 
+                            name={el.name} 
+                            price={el.price} 
+                            setCheckPopUp={setCheckPopUp} 
+                            setIdProduct={setIdProduct}
+                            //textButton='Добавить в корзину' 
+                            options={el.props} 
+                            reviews={el.reviews}
+                            add={orderProduct.includes(el.id)}
+                        />
             })}
             <PopUp
                 type={'information'}

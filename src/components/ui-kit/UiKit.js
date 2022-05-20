@@ -54,6 +54,9 @@ const UiKit = (props) => {
                 <Button disable href='/'>
                     Добавить в корзину
                 </Button>
+                <Button add href='/'>
+                    В корзине
+                </Button>
             </div>
 
             <div>

@@ -1,6 +1,6 @@
 .container__buttons {
     display: flex;
-    width: 700px;
+    width: 900px;
     justify-content: space-around;
     margin: 10px;
 }
@@ -11,10 +11,11 @@
     height: 40px;
     color: var(--white);
     font-size: 18px;
-    line-height: 36px;
+    line-height: 40px;
     text-align: center;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.08);
     background: var(--acthent);
+    border-radius: 5px;
     outline: none;
     border: none;
     cursor: pointer;
@@ -26,6 +27,24 @@
 .button_disable {
     cursor: default;
     background: var(--disable);
+}
+
+.button_add {
+    max-width: 169px;
+    text-align: inherit;
+    padding-left: 24px;
+    position: relative;
+    box-sizing: border-box;
+    &:after {
+        content: "";
+        position: absolute;
+        top: 12px;
+        right: 21px;
+        height: 17px;
+        width: 22px;
+        background: url('../../../img/check-marker-small.png') no-repeat;
+        //background-image: url('http://www.gentleface.com/i/free_toolbar_icons_16x16_black.png');
+    }
 }
 
 

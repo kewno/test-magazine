@@ -6,6 +6,7 @@ const SET_PRODUCTS = 'SET_PRODUCTS';
 const SET_DATA_PRODUCT = 'SET_DATA_PRODUCT';
 const SET_ACTIVE_CATEGORY = 'SET_ACTIVE_CATEGORY';
 const SET_ACTIVE_SUBCATEGORY = 'SET_ACTIVE_SUBCATEGORY';
+const TOGGLE_ORDER_PRODUCTS = 'TOGGLE_ORDER_PRODUCTS';
 
 export const setData = (data) => {
     return {type: SET_DATA, data};
@@ -25,6 +26,10 @@ export const setActiveCategory = (category) => {
 export const setActiveSubcategory = (subcategory) => {
     return {type: SET_ACTIVE_SUBCATEGORY, subcategory};
 }
+export const toggleOrderProducts = (id) => {
+    return {type: TOGGLE_ORDER_PRODUCTS, id};
+}
+
 
 export const setDataProductThunkCreator = (id) => {
     return async (dispatch) => {
@@ -65,15 +70,11 @@ export const setDataThunkCreator = () => {
 
         //let categorys = response.filter(filtrCategorys)
         let products; //= filtrProducts(data)
-        //debugger
         let categorys = filtrData(response);
-        //debugger
         //dispatch(setActiveCategory(categorys[0].id))
-        //debugger
         //dispatch(setActiveSubcategory(categorys[0].subcategorys[0].id))//Object.keys(categorys)[0]
         dispatch(setCategorys(categorys))
         dispatch(setData(data))
-        //debugger
         //dispatch(setProducts(products))
     }
 }
@@ -84,7 +85,8 @@ let initMain = {
         {id: 14, parent_id: -1, name: 'Электроприборы', subcategorys: [{id: 15, parent_id: 14, name: 'Светильники'}, {id: 16, parent_id: 14, name: 'Вентиляторы'}]},
         {id: 100, parent_id: -1, name: 'Мебель', subcategorys: [{id: 3, parent_id: 100, name: 'Диваны'}, {id: 4, parent_id: 100, name: 'Столы'}, {id: 2, parent_id: 100, name: 'Стулья'}]}],
     products: [],
-    activeProduct: {}
+    activeProduct: {},
+    orderProducts: [17]
     //subcategories : [],
     //activeCategory : 0,
     //activeSubcategory : 0
@@ -104,9 +106,11 @@ let mainReducer = (state = initMain, action) => {
     } else if (action.type === SET_ACTIVE_CATEGORY) {
         stateClone.activeCategory = Number(action.category)
     } else if (action.type === SET_ACTIVE_SUBCATEGORY) {
-        stateClone.activeSubcategory = action.subcategory
+        stateClone.activeSubcategory = action.subcategory 
     } else if (action.type === SET_DATA_PRODUCT) {
         stateClone.activeProduct = {...action.product}
+    } else if (action.type === TOGGLE_ORDER_PRODUCTS) {
+        stateClone.orderProducts.push(action.id) //= {...action.product}
     }
     return stateClone;
 }

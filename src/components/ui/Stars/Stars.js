@@ -14,12 +14,6 @@ const Stars = ({collSelected, setCollSelected, ...props}) => {
             {selected.map(el => {
                 return <Star key={el} id={el} setCollSelected={setCollSelected} active={el <= collSelected ? true : null}/>
             })}
-            {/* <Star active/>
-            <Star active/>
-            <Star active/>
-            <Star active/>
-            <Star/> */}
-            {/* <Star active/> */}
         </div>
     )
 }
