@@ -15,7 +15,6 @@ const CheckoutProducts = ({...props}) => {
 
 
     //debugger
-    console.log('products ' + products)
     return (
         <div className='products-checkout'>
             <h3 className='products-checkout__headline'>В корзине:</h3>

@@ -39,7 +39,7 @@ const Header = ({activeCategory, coll = 15, ...props}) => {
 //     }
 // }
 
-// export default connect(null,{
+// export default connect(null, {
 //     setDataThunkCreator
 // })(Header);
 export default Header
