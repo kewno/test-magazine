@@ -36,9 +36,12 @@ const PopUp = ({type, text, status, toggle, src, name, price, reviews, options, 
                             <p className='pop-up__text'>{text}</p>
                             <img className='pop-up__picture' onClick={() => toggle(false)} src={require('../../../img/close.png')}/>
                         </div>
-                        {/* <EmptyPopUp type={'basket'} src='basket-big.png'>{'В корзине ничего нет'}</EmptyPopUp> */}
+                        {/* <EmptyPopUp type={'basket'} src='basket-big.png'>{'В корзине ничего нет'}</EmptyPopUp> empty-basket*/}
                         {/* <EmptyPopUp type={'marker'} src='check-marker.png'>{'Заказ успешно создан'}</EmptyPopUp> */}
-                        {/* <Checkout/> */}
+                        {type == "empty-basket" ?
+                            <EmptyPopUp type={'basket'} src='basket-big.png'>{'В корзине ничего нет'}</EmptyPopUp>
+                        :
+                        null}
                         {type == "basket" ?
                             <Checkout/>
                         :

@@ -1,6 +1,8 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
+import { toggleOrderProducts } from '../../../../../../redux/mainReducer';
 
-const CheckoutProduct = ({id, name, price,  ...props}) => {
+const CheckoutProduct = ({id, name, image, price,  ...props}) => {
     let paddingPrice = (price) => {
         let str = String(price)
         let priceLength = str.length
@@ -9,14 +11,19 @@ const CheckoutProduct = ({id, name, price,  ...props}) => {
         let start = str.substr(0, startLength)
         return `${start} ${end}`
     }
-    
+    //require('../../../../../../img/product-small.png')
+    let dispatch = useDispatch()
+    let handleClick = (id) => {
+        dispatch(toggleOrderProducts(id))
+    }
+
     return (
         <div className='product-checkout'>
-            <img src={require('../../../../../../img/product-small.png')} className='product-checkout__picture'/>
+            <img src={image} className='product-checkout__picture'/>
             <div className='wrap-text'>
                 <p className='wrap-text__name'>{name}</p>
-                <h3 className='wrap-text__price'>{price}</h3>
-                <p className='wrap-text__delete'>{paddingPrice(price) + ' ₽'}</p>
+                <h3 className='wrap-text__price'>{paddingPrice(price) + ' ₽'}</h3>
+                <p className='wrap-text__delete' onClick={() => handleClick(id)}>{'Убрать из корзины'}</p>
             </div>
         </div>
     )

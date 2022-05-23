@@ -4,25 +4,26 @@ import CheckoutProduct from './CheckoutProduct/CheckoutProduct';
 
 
 const CheckoutProducts = ({...props}) => {
-    // let idOrderProducts = useSelector((state) => state.main.orderProducts)
-    // let products = useSelector((state) => state.main)
 
-    // console.log('products ' + products)
-    // let orderProducts = products.filter(el => {
-    //     debugger
-    //     console.log(1)
-    //     idOrderProducts.includes(el.id)
-        
-    // });
-    // console.log('orderProducts ' + orderProducts)
+    let idOrderProducts = useSelector((state) => state.main.orderProducts)
 
+    let products = useSelector((state) => state.main.products.filter(el => {
+        let a = idOrderProducts.indexOf(el.id)  
+        if (idOrderProducts.indexOf(el.id) == -1) return false  
+        return true
+    }))
+
+
+    //debugger
+    console.log('products ' + products)
     return (
         <div className='products-checkout'>
             <h3 className='products-checkout__headline'>В корзине:</h3>
             <div className='products-checkout__wrap-products'>
-                {/* {orderProducts.map(el => {
-                    return <CheckoutProduct />
-                })} */}
+                {products.map(el => {
+                    //debugger
+                    return <CheckoutProduct key={el.id} id={el.id} name={el.name} image={el.img} price={el.price}/>
+                })}
             </div>
         </div>
     )

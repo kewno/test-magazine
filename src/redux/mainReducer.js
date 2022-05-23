@@ -41,7 +41,6 @@ export const setDataProductThunkCreator = (id) => {
 export const setDataThunkCreator = () => {
     return async (dispatch) => {
         let response = await mainAPI.getCategoty()
-        
         let data = {};
         let filtrData = (arr) => {
             arr.forEach(el => {
@@ -68,14 +67,26 @@ export const setDataThunkCreator = () => {
             return categorys;
         }
 
-        //let categorys = response.filter(filtrCategorys)
-        let products; //= filtrProducts(data)
         let categorys = filtrData(response);
-        //dispatch(setActiveCategory(categorys[0].id))
-        //dispatch(setActiveSubcategory(categorys[0].subcategorys[0].id))//Object.keys(categorys)[0]
+        let filtrProducts = (subcategorys) => {
+            let products = [];
+                subcategorys.forEach(el => {
+                    for (let key in el.subcategorys) {
+                        let a = data[el.subcategorys[key].id];
+                        for (let id in a) {
+                            products.push(a[id])
+                        }
+                    }
+                })
+            return products;
+        }
+
+        let products = filtrProducts(categorys)
+
+        dispatch(setProducts(products))
+
         dispatch(setCategorys(categorys))
         dispatch(setData(data))
-        //dispatch(setProducts(products))
     }
 }
 
@@ -110,8 +121,8 @@ let mainReducer = (state = initMain, action) => {
     } else if (action.type === SET_DATA_PRODUCT) {
         stateClone.activeProduct = {...action.product}
     } else if (action.type === TOGGLE_ORDER_PRODUCTS) {
+        //debugger
         stateClone.orderProducts = [...stateClone.orderProducts]
-        //stateClone.orderProducts.push(action.id)
         let index = stateClone.orderProducts.indexOf(action.id)
         if (index != -1) {
             stateClone.orderProducts.splice(index, 1);

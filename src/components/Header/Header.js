@@ -9,9 +9,9 @@ import PopUp from '../ui/PopUp/PopUp';
 
 const Header = ({activeCategory, coll = 15, ...props}) => {
     // const dispatch = useDispatch()
-    // useEffect(() => {
-    //     dispatch(setDataThunkCreator())
-    // }, []);
+    
+    let idOrderProducts = useSelector((state) => state.main.orderProducts)
+
     let [checkPopUp, setCheckPopUp] = useState(false);
     let categorys = useSelector((state) => state.main.categorys)
     return (
@@ -24,7 +24,11 @@ const Header = ({activeCategory, coll = 15, ...props}) => {
                 />
             </div>
             <Basket coll={coll} func={setCheckPopUp}/>
-            <PopUp type={'basket'} toggle={setCheckPopUp} status={checkPopUp} text='Оформить заказ' {...props}/>
+            {idOrderProducts.length !== 0 ? 
+                <PopUp type={'basket'} toggle={setCheckPopUp} status={checkPopUp} text='Оформить заказ' {...props}/>
+                :
+                <PopUp type={'empty-basket'} toggle={setCheckPopUp} status={checkPopUp} text='Оформить заказ' {...props}/>
+            }
         </div>
     )
 }
