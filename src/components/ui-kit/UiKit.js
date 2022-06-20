@@ -14,11 +14,16 @@ const UiKit = (props) => {
     let [checkPopUp, setCheckPopUp] = useState(false);
     let [selectedTab, setActiveTab] = useState('characteristics');
     let [collSelected, setCollSelected] = useState(0);
+    let [collSelectedEnter, setCollSelectedEnter] = useState(0);
     //console.log('selectedTab; ' + selectedTab);
     return (
         <div className='container'>
             <div>
-                <Stars collSelected={collSelected} setCollSelected={setCollSelected}/>
+                <Stars collSelected={collSelected} 
+                       setCollSelected={setCollSelected}
+                       collSelectedEnter={collSelectedEnter} 
+                       setCollSelectedEnter={setCollSelectedEnter}
+                />
             </div>
 
             <div className='container__inputs'> 

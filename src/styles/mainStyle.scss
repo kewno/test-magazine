@@ -157,8 +157,10 @@
 }
 
 .wrap-name-stars {
+    display: flex;
     .wrap-name-stars__name {
-
+        margin-bottom: 7px;
+        margin-right: auto;
     }
     .wrap-name-stars_stars {
         
@@ -182,7 +184,7 @@
 
     .send-reviews-grade__stars {
         height: 19px;
-        background: red;
+        //background: red;
         width: 103px;
     }
 }

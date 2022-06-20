@@ -97,7 +97,7 @@ let initMain = {
         {id: 100, parent_id: -1, name: 'Мебель', subcategorys: [{id: 3, parent_id: 100, name: 'Диваны'}, {id: 4, parent_id: 100, name: 'Столы'}, {id: 2, parent_id: 100, name: 'Стулья'}]}],
     products: [],
     activeProduct: {},
-    orderProducts: [17]
+    orderProducts: [] //[17]
     //subcategories : [],
     //activeCategory : 0,
     //activeSubcategory : 0
